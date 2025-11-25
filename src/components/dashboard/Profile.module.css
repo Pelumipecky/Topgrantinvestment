@@ -1,0 +1,475 @@
+.profileContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.topSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.topSection h2 {
+  font-size: 1.5rem;
+  color: var(--text-deco);
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--dark-clr2);
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #FFB347;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.1);
+}
+
+.userInfo h3 {
+  font-size: 1rem;
+  color: var(--text-clr1);
+  margin: 0;
+}
+
+.userInfo p {
+  font-size: 0.8rem;
+  color: var(--text-deco);
+  margin: 0;
+}
+
+.accountSnapshot {
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 20px;
+  background: var(--dark-clr2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.snapshotHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.snapshotHeader h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #FFB347;
+}
+
+.snapshotHeader p {
+  margin: 0;
+  color: var(--text-deco);
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.snapshotGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.snapshotCard {
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: var(--dark-clr3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.snapshotCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 179, 71, 0.3);
+}
+
+.snapshotLabel {
+  font-size: 0.9rem;
+  color: var(--text-deco);
+  opacity: 0.7;
+  margin: 0;
+}
+
+.snapshotValue {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-clr1);
+  margin: 0;
+  word-break: break-word;
+}
+
+.snapshotBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(40, 167, 69, 0.2);
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.snapshotBadgeLocked {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(220, 53, 69, 0.2);
+  color: #dc3545;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+.formSection {
+  background: var(--dark-clr2);
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 2rem;
+}
+
+.formSection h2 {
+  color: #FFB347;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 179, 71, 0.2);
+  padding-bottom: 1rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  color: var(--text-clr1);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--opac-clr3);
+  border-radius: 12px;
+  background: var(--dark-clr4);
+  color: var(--text-clr1);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.inputGroup input:focus {
+  border-color: #FFB347;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 179, 71, 0.2);
+}
+
+.inputGroup input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.lockTag {
+  font-size: 0.7rem;
+  background: rgba(220, 53, 69, 0.2);
+  color: #dc3545;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+}
+
+.saveBtn {
+  background: linear-gradient(135deg, #FFB347, #FF7A18);
+  color: #1C0F36;
+  border: none;
+  border-radius: 30px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+.saveBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 122, 24, 0.3);
+}
+
+.dangerZone {
+  background: rgba(220, 18, 98, 0.05);
+  border: 1px solid var(--danger-clr);
+  padding: 2rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+}
+
+.dangerHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.dangerHeader i {
+  font-size: 1.5rem;
+  color: var(--danger-clr);
+}
+
+.dangerHeader h2 {
+  color: var(--danger-clr);
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.dangerText {
+  color: var(--text-clr1);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.deleteBtn {
+  background: var(--danger-clr);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.deleteBtn:hover {
+  background: #b00e4e;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(220, 18, 98, 0.3);
+}
+
+.statusMessage {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.statusSuccess {
+  background: rgba(40, 167, 69, 0.2);
+  color: #28a745;
+  border: 1px solid #28a745;
+}
+
+.statusError {
+  background: rgba(220, 53, 69, 0.2);
+  color: #dc3545;
+  border: 1px solid #dc3545;
+}
+
+.statusPending {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border: 1px solid #ffc107;
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modalCard {
+  background: var(--dark-clr2);
+  padding: 2rem;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid var(--danger-clr);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.modalHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.modalIcon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.modalTitle {
+  color: var(--danger-clr);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.modalWarning {
+  background: rgba(220, 18, 98, 0.1);
+  border: 1px solid rgba(220, 18, 98, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.modalWarning p {
+  color: var(--text-clr1);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.modalWarning ul {
+  color: var(--text-clr1);
+  font-size: 0.85rem;
+  padding-left: 1.5rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.modalInputGroup {
+  margin-bottom: 1.5rem;
+}
+
+.modalInputGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-clr1);
+  font-weight: 600;
+}
+
+.modalInput {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid var(--opac-clr3);
+  border-radius: 8px;
+  background: var(--dark-clr4);
+  color: var(--text-clr1);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.modalInput:focus {
+  border-color: var(--danger-clr);
+  outline: none;
+}
+
+.modalActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.modalCancelBtn {
+  background: transparent;
+  border: 1px solid var(--text-deco);
+  color: var(--text-clr1);
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.modalCancelBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.modalDeleteBtn {
+  background: var(--danger-clr);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modalDeleteBtn:hover {
+  background: #b00e4e;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(220, 18, 98, 0.3);
+}
+
+.modalDeleteBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--text-deco);
+}
+
+.relativeInput {
+  position: relative;
+}
+
+@media (max-width: 640px) {
+  .snapshotGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,447 @@
+.kycContainer {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.stepIndicator {
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 20px;
+  background: rgba(28, 15, 54, 0.4);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stepIndicator span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.stepIndicator span.active {
+  opacity: 1;
+  background: #FFB347;
+  transform: scale(1.4);
+  box-shadow: 0 0 15px rgba(255, 179, 71, 0.5);
+}
+
+.stepIndicator span.active::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid #FFB347;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.kycForm {
+  background: var(--dark-clr2);
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  margin-bottom: 2rem;
+}
+
+.formGroup {
+  margin-bottom: 2rem;
+}
+
+.formGroup label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--text-deco);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.formGroup select,
+.formGroup input[type="text"] {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--opac-clr3);
+  border-radius: 12px;
+  background: var(--dark-clr3);
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  color: var(--text-clr1);
+}
+
+.formGroup select:focus,
+.formGroup input[type="text"]:focus {
+  border-color: #FFB347;
+  outline: none;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 179, 71, 0.15);
+}
+
+.fileUpload {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.fileInput {
+  position: relative;
+}
+
+.fileInput input[type="file"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.fileInput .uploadBox {
+  border: 2px dashed rgba(255, 179, 71, 0.5);
+  border-radius: 15px;
+  padding: 3rem;
+  text-align: center;
+  background: rgba(255, 179, 71, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.fileInput .uploadBox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 179, 71, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.fileInput:hover .uploadBox {
+  border-color: #FFB347;
+  background: rgba(255, 179, 71, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.fileInput:hover .uploadBox::before {
+  left: 100%;
+}
+
+.uploadBox i {
+  font-size: 3rem;
+  color: #FFB347;
+  margin-bottom: 1rem;
+  display: block;
+  text-shadow: 0 0 15px rgba(255, 179, 71, 0.4);
+}
+
+.uploadBox p {
+  color: var(--text-clr1);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.dragActive {
+  border-color: #FFB347 !important;
+  background: rgba(255, 179, 71, 0.15) !important;
+  transform: scale(1.02) !important;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.filePreview {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(28, 15, 54, 0.6);
+  border-radius: 12px;
+  margin-top: 1rem;
+  border: 1px solid rgba(255, 179, 71, 0.2);
+  transition: all 0.3s ease;
+}
+
+.filePreview:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  border-color: #FFB347;
+}
+
+.filePreview i {
+  font-size: 28px;
+  color: #FFB347;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.statusBox {
+  margin-top: 3rem;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.statusBox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: currentColor;
+  opacity: 0.3;
+}
+
+.pending {
+  background: rgba(255, 193, 7, 0.15);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.verified {
+  background: rgba(40, 167, 69, 0.15);
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.3);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.rejected {
+  background: rgba(220, 53, 69, 0.15);
+  color: #dc3545;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.submitButton {
+  width: 100%;
+  padding: 1.25rem;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #FFB347, #FF7A18);
+  color: #1C0F36;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.submitButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(255, 122, 24, 0.3);
+}
+
+.submitButton:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  background: #555;
+  color: #999;
+}
+
+.helper {
+  font-size: 0.9rem;
+  color: var(--text-deco);
+  margin-top: 0.5rem;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  padding: 0.8rem;
+  background: rgba(220, 18, 98, 0.1);
+  border-radius: 8px;
+  border-left: 4px solid #ff6b6b;
+}
+
+/* Ensure the overview section is styled */
+.overviewSection {
+  display: block;
+  width: 100%;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: rgba(28, 15, 54, 0.4);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.overviewSection h2 {
+  margin: 0 0 1rem 0;
+  padding: 0;
+  font-size: 1.8rem;
+  color: #FFB347;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(255, 179, 71, 0.2);
+}
+
+/* Modal styles */
+.modalActions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.modalButton {
+  background: linear-gradient(135deg, #FFB347, #FF7A18);
+  color: #1C0F36;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.modalButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 122, 24, 0.3);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .kycContainer {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .kycForm {
+    padding: 1.5rem;
+    margin: 0 10px;
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+    border-radius: 15px;
+  }
+  
+  .stepIndicator {
+    padding: 15px;
+    margin-bottom: 2rem;
+  }
+  
+  .stepIndicator span {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .formGroup {
+    margin-bottom: 1.5rem;
+  }
+  
+  .formGroup label {
+    font-size: 1rem;
+  }
+  
+  .formGroup input,
+  .formGroup select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.875rem;
+  }
+  
+  .fileInput .uploadBox {
+    padding: 2rem 1rem;
+  }
+  
+  .filePreview {
+    padding: 1rem;
+  }
+  
+  .filePreview i {
+    font-size: 24px;
+    padding: 8px;
+  }
+  
+  .submitButton {
+    padding: 1rem;
+    font-size: 1rem;
+    width: 100%;
+  }
+  
+  .overviewSection {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .overviewSection h2 {
+    font-size: 1.4rem;
+  }
+  
+  .statusBox {
+    padding: 1.5rem;
+    margin-top: 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .kycForm {
+    padding: 1rem;
+    margin: 0 5px;
+    width: calc(100% - 10px);
+  }
+  
+  .overviewSection {
+    padding: 1rem;
+  }
+  
+  .overviewSection h2 {
+    font-size: 1.2rem;
+  }
+  
+  .fileInput .uploadBox {
+    padding: 1.5rem 0.5rem;
+  }
+}

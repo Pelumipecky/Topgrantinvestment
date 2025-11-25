@@ -1,0 +1,658 @@
+:root {
+    --primary-clr: #1C0F36;
+    --sec2-clr: #3A1A63;
+    --sec-clr: #FF8C37;
+    --text-clr1: #FEF9FF;
+    --text-deco: #EAD8FF;
+    --white-purple: #F8EDFF;
+    --dark-clr1: #120524;
+    --dark-clr2: #1A0833;
+    --dark-clr3: #230E42;
+    --dark-clr4: #311456;
+    --dark-clr5: #080112;
+
+    --opac-clr1: #1C0F3645;
+    --opac-clr2: #FF8C3770;
+    --opac-clr3: #1C0F36a1;
+  
+    --danger-clr: #DC1262;
+    --grey-clr: #B8A5D6;
+    --text-accent: #d7d9e4;
+    --linear-grad1: linear-gradient(180deg, #1C0F36 40%, #3A1A63);
+    --linear-grad2: linear-gradient(120deg, #1C0F36 , #FF8C37);
+    --linear-grad3: linear-gradient(180deg,  #FF8C37, #1C0F36, #FEF9FF);
+
+  
+    --gen-padding: 10%;
+    --btn-height: 40px;
+  
+  
+    --font-alegreya: 'Alegreya Sans', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+    --font-mont: 'Montserrat', sans-serif;
+}
+
+.signupCntn{
+    width: 100%;
+    height: 100dvh;
+    gap: 20px;
+    position: relative;
+    display: flex;
+    overflow-x: hidden;
+}
+
+.leftSide{
+    height: calc(100vh - 20px);
+    width: 50%;
+    isolation: isolate;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-left: 10px;
+    position: fixed;
+    top: 10px;
+    left: 0;
+}
+
+.leftSide video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.leftSide .overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    gap: 3em;
+    align-items: center;
+    justify-content: flex-end;
+    background-image: linear-gradient(to bottom, #0006134c, 20%, #020d25e4);
+    pointer-events: none;
+}
+
+.leftSide .overlay h2{
+    font-size: 4em;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: var(--linear-grad2);
+    font-weight: 400;
+    color: transparent;
+    text-align: center;
+    color: var(--dark-clr3);
+    color: #0a497c;
+}
+
+.leftSide .overlay p{
+    font-size: 1.3em;
+    color: var(--text-deco);
+    font-weight: 400;
+}
+
+.leftSide .overlay p span{
+    color: var(--text-accent);
+}
+
+.rightSide{
+    padding-inline: 10%;
+    width: 50%;
+    margin-left: 50%;
+    position: relative;
+}
+
+.rightSide form{
+    --input-width: 350px;
+    --input-height: 50px;
+    min-height: 100dvh;
+    padding-block: 0em 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+@media screen and (max-width: 700px) {
+    .signupCntn{
+        display: block;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .leftSide{
+        height: 0px;
+        width: 0px;
+        isolation: isolate;
+        overflow: hidden;
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        z-index: -10;
+        pointer-events: none;
+        visibility: hidden;
+    }
+    .leftSide, .leftSide video, .leftSide .overlay{
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    } 
+
+    .rightSide{
+        padding-inline: 5%;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        position: relative;
+        z-index: 100;
+        background: var(--dark-clr1);
+        min-height: 100vh;
+    }
+
+    .rightSide form{
+        --input-width: 100%;
+        max-width: 100%;
+        padding-inline: 0;
+        min-height: 100vh;
+    }
+
+    .rightSide form .inputcontainer{
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .rightSide form .inputCntn,
+    .rightSide form .passcntn{
+        width: 100%;
+        max-width: 100%;
+    }
+
+    ._cloudflr_verifcation_widget{
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .service_provider{
+        width: 100%;
+        text-align: center;
+    }
+
+    form button[type="submit"]{
+        width: 100%;
+        padding: 15px;
+        font-size: 1rem;
+        min-height: 50px;
+    }
+
+    .form-control2{
+        width: 100%;
+        font-size: 0.9em;
+    }
+
+    .haveanaccount{
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .rightSide form .topsignuplink{
+        padding-block: 1.5em 10px;
+    }
+
+    .errorMsg{
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+}
+
+/* Extra small mobile devices */
+@media screen and (max-width: 480px) {
+    .rightSide{
+        padding-inline: 4%;
+    }
+
+    .rightSide form{
+        gap: 20px;
+    }
+
+    ._cloudflr_verifcation_widget{
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .verification_Box{
+        gap: 12px;
+    }
+
+    .verification_status p{
+        font-size: 0.75em;
+    }
+
+    .service_provider p{
+        font-size: 0.65em;
+    }
+
+    .service_provider p img{
+        width: 60px;
+    }
+
+    form button[type="submit"]{
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+
+    .inputCntn input,
+    .passcntn input{
+        font-size: 0.95rem;
+        padding: 12px;
+    }
+}
+
+.rightSide form .topsignuplink{
+    width: 100%;
+    background-color: var(--dark-clr1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 2em 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.rightSide form a img{
+    height: 30px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.rightSide form h1{
+    font-size: 1.5em;
+    color: var(--text-deco);
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.signupSuccessCard{
+    width: var(--input-width);
+    max-width: 100%;
+    background: rgba(0, 52, 89, 0.3);
+    border: 1px solid rgba(0, 168, 232, 0.3);
+    border-radius: 16px;
+    padding: 1.5em;
+    color: var(--text-clr1);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    text-align: left;
+}
+
+.signupSuccessCard h2{
+    margin: 0;
+    font-size: 1.2em;
+    color: var(--text-deco);
+}
+
+.signupSuccessCard p{
+    margin: 0;
+    color: var(--grey-clr);
+    font-size: 0.9em;
+}
+
+.referralShareRow{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 0.75em 1em;
+    background: rgba(1, 36, 59, 0.7);
+    border-radius: 12px;
+}
+
+.referralShareRow label{
+    display: block;
+    font-size: 0.85em;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--grey-clr);
+    margin-bottom: 0.2em;
+}
+
+.referralShareRow strong{
+    font-size: 1.2em;
+    color: var(--text-deco);
+}
+
+.referralShareRow small{
+    display: block;
+    font-size: 0.85em;
+    color: var(--text-deco);
+    word-break: break-all;
+}
+
+.copyBtn{
+    border: none;
+    border-radius: 999px;
+    padding: 0.6em 1.2em;
+    background: var(--sec-clr);
+    color: #002239;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    white-space: nowrap;
+}
+
+.copyBtn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 168, 232, 0.2);
+}
+
+.fancyBtn.secondary{
+    width: 100%;
+    margin-top: 0.5em;
+    background: transparent;
+    border: 1px solid rgba(0, 168, 232, 0.4);
+}
+
+form .inputcontainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.inputCntn, .passcntn {
+    width: var(--input-width);
+    height: var(--input-height);
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #183b59b3;
+
+    transition: border 0.35s ease;
+}
+
+.inputCntn:focus-within, .passcntn:focus-within{
+    border:  1px solid var(--primary-clr);
+}
+
+.inputCntn input{
+    background-color: transparent;
+    font-size: 1.1em;
+    color: var(--text-clr1);
+    padding-left: 40px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+}
+
+.passcntn input{
+    background-color: transparent;
+    font-size: 1.1em;
+    color: var(--text-clr1);
+    padding-right: 40px;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding-left: 16px;
+}
+
+.inputCntn span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 40px;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.passcntn button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 40px;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.inputCntn span i{
+    font-size: 0.5em;
+    font-weight: 300;
+    color: var(--text-accent);
+}
+
+.passcntn button i{
+    font-size: 0.6em;
+    font-weight: 300;
+    color: var(--text-accent);
+}
+
+.inputcontainer .form-control2{
+    font-size: 0.96em;
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--text-clr);
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 20px;
+    cursor: pointer;
+    align-items: center;
+}
+
+
+.inputcontainer input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--dark-clr1);
+    margin: 0;
+    font: inherit;
+    color: gray;
+    width: 20px;
+    aspect-ratio: 1;
+    border: 1px solid #183b59b3;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+}
+
+.inputcontainer input[type="checkbox"]::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--sec-clr);
+    background-color: var(--sec-clr);
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+
+.inputcontainer input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+.inputcontainer input[type="checkbox"]:focus {
+    outline: 2px solid var(--primary-clr);
+    outline-offset: 1px;
+}
+
+._cloudflr_verifcation_widget{
+    width: var(--input-width);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--dark-clr2);
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    position: relative;
+    z-index: 5;
+}
+
+.verification_Box{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.checkbox_cntn{
+    position: relative;
+    width: 30px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.checkbox_cntn input{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.checkbox_cntn span, .checkbox_cntn i{
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.checkbox_cntn span{
+    width: 90%;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    border: 1px solid var(--opac-clr2);
+}
+
+.checkbox_cntn i.icofont-check-circled {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    font-size: 2em;
+    color: var(--text-accent);
+    animation: scale 0.5s ease-in-out forwards;
+    transform-origin: center;
+}
+.checkbox_cntn i.icofont-spinner-alt-2 {
+    pointer-events: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    display: flex;
+    font-size: 2em;
+    color: var(--sec-clr);
+    animation: spin 2s ease-in-out infinite;
+}
+
+@keyframes scale {
+    0%{
+        scale: 0.9;
+    }
+    100%{
+        scale: 1;
+    }
+}
+@keyframes spin {
+    0%{
+        rotate: 0deg;
+    }
+    100%{
+        rotate: 360deg;
+    }
+}
+
+.verification_status{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.verification_status p{
+    text-align: center;
+    color: #f8f6e0;
+    font-weight: 400;
+    font-size: 0.8em;
+}
+
+.service_provider p{
+    font-size: 0.7em;
+    color: #888;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.service_provider p img{
+    width: 70px;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+}
+
+form button[type="submit"]{
+    width: var(--input-width);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    position: relative;
+    z-index: 10;
+}
+
+.haveanaccount{
+    min-width: var(--input-width);
+    color: var(--grey-clr);
+    font-weight: 400;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.haveanaccount a{
+    color: var(--text-accent);
+    font-size: 1.1em;
+}
+
+form .errorMsg{
+    width: var(--input-width);
+    color: var(--danger-clr);
+    font-size: 0.8em;
+    font-weight: 400;
+}

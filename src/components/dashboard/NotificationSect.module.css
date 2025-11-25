@@ -1,0 +1,320 @@
+.notificationContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sectionTitle {
+  color: #FFB347;
+  font-size: 1.5em;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 179, 71, 0.2);
+}
+
+.notificationList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.notificationCard {
+  background: var(--dark-clr2);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.notificationCard:hover {
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 179, 71, 0.2);
+}
+
+.notificationCard.unread {
+  border-left: 4px solid #FFB347;
+  background: linear-gradient(90deg, rgba(255, 179, 71, 0.05), transparent);
+}
+
+.iconWrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 179, 71, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.iconWrapper i {
+  font-size: 1.5rem;
+  color: #FFB347;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-clr1);
+  margin-bottom: 0.2rem;
+}
+
+.date {
+  font-size: 0.85rem;
+  color: var(--text-deco);
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+.message {
+  color: var(--text-deco);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-deco);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: var(--dark-clr2);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.emptyState i {
+  font-size: 3rem;
+  color: rgba(255, 179, 71, 0.3);
+}
+
+@media (max-width: 600px) {
+  .notificationCard {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .date {
+    margin-left: 0;
+  }
+}
+
+/* Packages Section */
+.packages {
+  padding: 2rem 0;
+  margin: 0 auto 2rem;
+  background: linear-gradient(135deg, rgba(28,15,54,0.5) 0%, rgba(8,1,18,0.5) 100%);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  max-width: 1600px;
+  width: 95%;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 1024px) {
+  .packages {
+    padding: 2rem 0;
+    margin: 1.5rem auto;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .packages {
+    padding: 2rem 0;
+    margin: 1rem auto;
+    width: 95%;
+    border-radius: 15px;
+  }
+}
+
+.packagesTitle {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5em;
+  font-weight: 600;
+  background: linear-gradient(135deg, #FFB347 0%, #FEF9FF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(255,255,255,0.1);
+}
+
+.packageGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 0 2rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.packageCard {
+  background: rgba(28,15,54,0.65);
+  border-radius: 24px;
+  padding: 3rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.packageCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  border-color: rgba(255,179,71,0.3);
+}
+
+.packageCard.diamond {
+  background: linear-gradient(145deg, rgba(28,15,54,0.8) 0%, rgba(45,25,85,0.8) 100%);
+  border: 1px solid rgba(255,179,71,0.2);
+  position: relative;
+}
+
+.packageCard.diamond::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #FFB347, #FFD700);
+  border-radius: 24px 24px 0 0;
+}
+
+.packageTitle {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.planSubtitle {
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.packagePrice {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.packagePrice span:first-child {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #FFB347;
+  text-shadow: 0 0 20px rgba(255,179,71,0.3);
+}
+
+.packagePrice span:last-child {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 3rem 0;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  color: rgba(255,255,255,0.9);
+  font-size: 1.1rem;
+}
+
+.featureIcon {
+  color: #FFB347;
+  margin-right: 1rem;
+  font-size: 1.2em;
+  background: rgba(255,179,71,0.1);
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.investButton {
+  width: 100%;
+  padding: 1.2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.standardButton {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+.standardButton:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: #fff;
+}
+
+.diamondButton {
+  background: linear-gradient(135deg, #FFB347 0%, #FF8C00 100%);
+  border: none;
+  color: #000;
+  box-shadow: 0 10px 20px rgba(255,179,71,0.2);
+}
+
+.diamondButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(255,179,71,0.3);
+}
+
+@media screen and (max-width: 768px) {
+  .packageGrid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  
+  .packageCard {
+    padding: 2rem;
+  }
+  
+  .packagesTitle {
+    font-size: 2em;
+    margin-bottom: 2rem;
+  }
+}
