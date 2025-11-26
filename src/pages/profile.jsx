@@ -877,7 +877,7 @@ const Profile = () => {
       {/* Load Tawk.to chat widget only for non-admin users */}
       {!currentUser?.admin && (
         <Script
-          src="https://embed.tawk.to/691a8701dde8a319591806a0/1ja7puo6d"
+          src="https://embed.tawk.to/69277567cb59ac1958ead274/1jb1258fo"
           crossOrigin="anonymous"
           strategy="afterInteractive"
           onLoad={() => {

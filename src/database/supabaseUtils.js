@@ -645,8 +645,11 @@ export const supabaseDb = {
 
   createInvestment: async (investmentData) => {
     const cleanData = normalizeInvestmentPayload(investmentData);
-
-    console.log('Creating investment with data:', cleanData);
+    try {
+      console.log('supabaseDb.createInvestment - normalized payload:', cleanData);
+    } catch (e) {
+      console.warn('supabaseDb.createInvestment - payload stringify failed', e);
+    }
 
     const { data, error } = await supabase
       .from('investments')
@@ -658,7 +661,9 @@ export const supabaseDb = {
       console.error('Supabase error creating investment:', error);
     }
 
-    return { data: mapInvestmentRecord(data), error };
+    const mapped = mapInvestmentRecord(data);
+    console.log('supabaseDb.createInvestment - mapped result:', mapped);
+    return { data: mapped, error };
   },
 
   deleteInvestmentsByUserId: async (userId) => {
