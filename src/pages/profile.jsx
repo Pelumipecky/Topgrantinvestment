@@ -893,6 +893,21 @@ const Profile = () => {
                   }
                 };
               }
+              // Provide visitor context to Tawk so chats are associated with users in dashboard
+              try {
+                if (currentUser && typeof window.Tawk_API.setAttributes === 'function') {
+                  const attrs = {
+                    name: currentUser.name || currentUser.userName || null,
+                    email: currentUser.email || null,
+                    idnum: currentUser.idnum || null
+                  };
+                  window.Tawk_API.setAttributes(attrs, (err) => {
+                    if (err) console.warn('Tawk.setAttributes callback error:', err);
+                  });
+                }
+              } catch (e) {
+                console.warn('Tawk setAttributes call failed:', e);
+              }
               flushPendingTawkChat();
             }
           }}
@@ -909,6 +924,21 @@ const Profile = () => {
                 }, 2000);
               } catch (e) {
                 console.warn('Tawk.to widget control error:', e);
+              }
+              // Also set attributes on ready in case onLoad didn't run with user data
+              try {
+                if (currentUser && typeof window.Tawk_API.setAttributes === 'function') {
+                  const attrs = {
+                    name: currentUser.name || currentUser.userName || null,
+                    email: currentUser.email || null,
+                    idnum: currentUser.idnum || null
+                  };
+                  window.Tawk_API.setAttributes(attrs, (err) => {
+                    if (err) console.warn('Tawk.setAttributes callback error (ready):', err);
+                  });
+                }
+              } catch (e) {
+                console.warn('Tawk setAttributes call failed (ready):', e);
               }
               flushPendingTawkChat();
             }
