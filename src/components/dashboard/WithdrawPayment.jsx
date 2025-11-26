@@ -121,24 +121,20 @@ const WithdrawalPayment = ({setProfileState, withdrawData, bitPrice, ethPrice, c
                 return;
             }
 
-            // Create withdrawal record
-            const withdrawalData = {
-                ...withdrawData,
-                amount,
-                wallet_address: walletAddress, // Add wallet address
+            // Build a normalized payload using DB column names to avoid unknown-column errors
+            const withdrawalPayload = {
+                idnum: currentUser?.idnum,
+                amount: amount,
+                status: "Pending",
+                paymentoption: withdrawData?.paymentOption ?? withdrawData?.paymentoption ?? 'Bitcoin',
+                wallet_address: walletAddress || withdrawData?.wallet_address || null,
+                // Keep a human-readable fee for UI only (do not send unknown keys to DB)
+                // fee: withdrawData?.fee || null,
                 created_at: new Date().toISOString(),
                 updated_at: new Date().toISOString(),
-                withdrawal_code: "N/A", // No longer using withdrawal codes
-                widthrawal_fee: withdrawData?.paymentOption === "Bitcoin"
-                    ? `${calculateCryptoAmount(amount, bitPrice, 'BTC')} BTC`
-                    : withdrawData?.paymentOption === "Ethereum"
-                    ? `${calculateCryptoAmount(amount, ethPrice, 'ETH')} ETH`
-                    : 'N/A',
-                idnum: currentUser?.idnum,
-                status: "Pending"
             };
 
-            const { error: withdrawalError } = await supabaseDb.createWithdrawal(withdrawalData);
+            const { error: withdrawalError } = await supabaseDb.createWithdrawal(withdrawalPayload);
             if (withdrawalError) throw withdrawalError;
 
             // Deduct amount from user's available balance
