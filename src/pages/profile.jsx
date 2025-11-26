@@ -879,7 +879,7 @@ const Profile = () => {
         <Script
           src="https://embed.tawk.to/69277567cb59ac1958ead274/1jb1258fo"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           onLoad={() => {
             console.log('Tawk.to loaded successfully');
             if (typeof window !== 'undefined' && window.Tawk_API) {
