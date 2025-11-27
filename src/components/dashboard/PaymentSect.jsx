@@ -60,14 +60,8 @@ const PaymentSect = ({setProfileState, investData, bitPrice, ethPrice, setInvest
         };
 
         console.log('Creating investment with pending status:', investmentToCreate);
-        try {
-            console.log('PaymentSect - payload (stringified):', JSON.stringify(investmentToCreate));
-        } catch (e) {
-            console.warn('PaymentSect - payload stringify failed', e);
-        }
 
         const { data, error } = await supabaseDb.createInvestment(investmentToCreate);
-        console.log('PaymentSect - createInvestment result:', { data, error });
         if (error) {
             console.error('Error creating investment:', error);
             setModalTitle("Error");

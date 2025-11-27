@@ -13,7 +13,6 @@ import '../styles/admin-dashboard.css';
 import ErrorBoundary from '../components/ErrorBoundary';
 import { config } from '../utils/config';
 import dynamic from 'next/dynamic';
-import attachInputVisibilityFix from '../utils/inputVisibilityFix';
 
 const TranslateWidget = dynamic(() => import('../components/TranslateWidget'), { ssr: false });
 
@@ -77,12 +76,6 @@ export default function App({ Component, pageProps }) {
   // Disable automatic route guard to prevent signin conflicts
   // Individual pages will handle their own auth checks if needed
 
-  // Attach runtime input visibility fix for browsers that ignore CSS overrides
-  useEffect(() => {
-    const cleanup = attachInputVisibilityFix();
-    return () => cleanup && cleanup();
-  }, []);
-
   return (
     <ThemeProvider>
       <Head>
@@ -99,8 +92,8 @@ export default function App({ Component, pageProps }) {
       <AnimatePresence mode='wait'>
           <div className="app-wrapper" key="app-content">
           {/* ChatBot is rendered inside the user profile page only */}
-          <TranslateWidget />
           <Component {...pageProps} />
+          <TranslateWidget />
         </div>
       </AnimatePresence>
     </ThemeProvider>

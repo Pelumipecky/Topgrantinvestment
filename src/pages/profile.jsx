@@ -877,9 +877,9 @@ const Profile = () => {
       {/* Load Tawk.to chat widget only for non-admin users */}
       {!currentUser?.admin && (
         <Script
-          src="https://embed.tawk.to/69277567cb59ac1958ead274/1jb1258fo"
+          src="https://embed.tawk.to/691ae8bf191341195c31370b/default"
           crossOrigin="anonymous"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
           onLoad={() => {
             console.log('Tawk.to loaded successfully');
             if (typeof window !== 'undefined' && window.Tawk_API) {
@@ -892,21 +892,6 @@ const Profile = () => {
                     console.warn('Tawk.to setAttributes error:', e);
                   }
                 };
-              }
-              // Provide visitor context to Tawk so chats are associated with users in dashboard
-              try {
-                if (currentUser && typeof window.Tawk_API.setAttributes === 'function') {
-                  const attrs = {
-                    name: currentUser.name || currentUser.userName || null,
-                    email: currentUser.email || null,
-                    idnum: currentUser.idnum || null
-                  };
-                  window.Tawk_API.setAttributes(attrs, (err) => {
-                    if (err) console.warn('Tawk.setAttributes callback error:', err);
-                  });
-                }
-              } catch (e) {
-                console.warn('Tawk setAttributes call failed:', e);
               }
               flushPendingTawkChat();
             }
@@ -924,21 +909,6 @@ const Profile = () => {
                 }, 2000);
               } catch (e) {
                 console.warn('Tawk.to widget control error:', e);
-              }
-              // Also set attributes on ready in case onLoad didn't run with user data
-              try {
-                if (currentUser && typeof window.Tawk_API.setAttributes === 'function') {
-                  const attrs = {
-                    name: currentUser.name || currentUser.userName || null,
-                    email: currentUser.email || null,
-                    idnum: currentUser.idnum || null
-                  };
-                  window.Tawk_API.setAttributes(attrs, (err) => {
-                    if (err) console.warn('Tawk.setAttributes callback error (ready):', err);
-                  });
-                }
-              } catch (e) {
-                console.warn('Tawk setAttributes call failed (ready):', e);
               }
               flushPendingTawkChat();
             }

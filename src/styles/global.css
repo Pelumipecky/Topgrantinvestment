@@ -218,80 +218,6 @@ video {
   cursor: pointer;
 }
 
-/* Ensure form input text is visible across devices (mobile browsers, autofill, etc) */
-input, textarea, select, .form-control, .form-control2 {
-  color: #222 !important;
-  caret-color: #222 !important;
-  background-color: #fff !important;
-  -webkit-text-fill-color: #222 !important; /* for iOS/Chrome autofill */
-}
-
-/* Aggressive fix for iPhone/small device input visibility */
-@media screen and (max-width: 600px) {
-  input, textarea, select {
-    color: #222 !important;
-    background: #fff !important;
-    caret-color: #222 !important;
-    -webkit-text-fill-color: #222 !important;
-    border: 1px solid #888 !important;
-    font-size: 1.1em !important;
-    z-index: 1000;
-  }
-  input:focus, textarea:focus, select:focus {
-    color: #222 !important;
-    background: #fff !important;
-    caret-color: #222 !important;
-    -webkit-text-fill-color: #222 !important;
-    border: 2px solid #003459 !important;
-  }
-  input::placeholder, textarea::placeholder {
-    color: #888 !important;
-    opacity: 1 !important;
-  }
-  input:focus::placeholder, textarea:focus::placeholder {
-    opacity: 0 !important;
-    color: transparent !important;
-  }
-}
-
-input::placeholder, textarea::placeholder {
-  color: var(--grey-clr) !important;
-  opacity: 1;
-}
-
-/* Hide placeholder while typing/focused so user sees their input on all devices */
-input:focus::placeholder,
-textarea:focus::placeholder {
-  opacity: 0 !important;
-  color: transparent !important;
-}
-
-/* Ensure input text remains visible when focused/active on mobile */
-input:focus,
-textarea:focus,
-input:active,
-textarea:active {
-  color: var(--text-clr1) !important;
-  -webkit-text-fill-color: var(--text-clr1) !important;
-  caret-color: var(--text-clr1) !important;
-}
-
-/* Autofill fixes for WebKit browsers */
-input:-webkit-autofill,
-textarea:-webkit-autofill,
-select:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
-  -webkit-text-fill-color: var(--text-clr1) !important;
-}
-
-/* Ensure inputs stay readable when focused on small screens */
-@media screen and (max-width: 420px) {
-  input, textarea {
-    font-size: 1rem;
-    line-height: 1.2;
-  }
-}
-
 .sortOptions button {
   padding: 8px 12px;
   border-radius: 5px;
@@ -520,7 +446,7 @@ select:-webkit-autofill {
 
 .translate-widget {
   position: fixed;
-  top: 20px;
+  bottom: 20px;
   right: 20px;
   background: rgba(12, 4, 24, 0.9);
   border: 1px solid rgba(255,255,255,0.08);
@@ -566,11 +492,4 @@ select:-webkit-autofill {
 .translate-widget .goog-te-gadget-simple {
   background-color: transparent;
   border: none !important;
-}
-
-/* Hide translate widget on very small screens to avoid covering inputs/buttons */
-@media screen and (max-width: 420px) {
-  .translate-widget {
-    display: none !important;
-  }
 }
