@@ -387,9 +387,9 @@ form .inputcontainer{
 }
 
 .inputCntn input{
-    background-color: transparent;
+    background-color: #fff;
     font-size: 1.1em;
-    color: var(--text-clr1);
+    color: #222;
     padding-left: 40px;
     width: 100%;
     height: 100%;
@@ -398,9 +398,9 @@ form .inputcontainer{
 }
 
 .passcntn input{
-    background-color: transparent;
+    background-color: #fff;
     font-size: 1.1em;
-    color: var(--text-clr1);
+    color: #222;
     padding-right: 40px;
     width: 100%;
     height: 100%;

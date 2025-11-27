@@ -220,10 +220,38 @@ video {
 
 /* Ensure form input text is visible across devices (mobile browsers, autofill, etc) */
 input, textarea, select, .form-control, .form-control2 {
-  color: var(--text-clr1) !important;
-  caret-color: var(--text-clr1) !important;
-  background-color: transparent !important;
-  -webkit-text-fill-color: var(--text-clr1) !important; /* for iOS/Chrome autofill */
+  color: #222 !important;
+  caret-color: #222 !important;
+  background-color: #fff !important;
+  -webkit-text-fill-color: #222 !important; /* for iOS/Chrome autofill */
+}
+
+/* Aggressive fix for iPhone/small device input visibility */
+@media screen and (max-width: 600px) {
+  input, textarea, select {
+    color: #222 !important;
+    background: #fff !important;
+    caret-color: #222 !important;
+    -webkit-text-fill-color: #222 !important;
+    border: 1px solid #888 !important;
+    font-size: 1.1em !important;
+    z-index: 1000;
+  }
+  input:focus, textarea:focus, select:focus {
+    color: #222 !important;
+    background: #fff !important;
+    caret-color: #222 !important;
+    -webkit-text-fill-color: #222 !important;
+    border: 2px solid #003459 !important;
+  }
+  input::placeholder, textarea::placeholder {
+    color: #888 !important;
+    opacity: 1 !important;
+  }
+  input:focus::placeholder, textarea:focus::placeholder {
+    opacity: 0 !important;
+    color: transparent !important;
+  }
 }
 
 input::placeholder, textarea::placeholder {
