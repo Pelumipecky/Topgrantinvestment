@@ -656,3 +656,21 @@ form .errorMsg{
     font-size: 0.8em;
     font-weight: 400;
 }
+
+/* Ensure sign-in button is visible and clickable on small screens */
+@media screen and (max-width: 600px) {
+    .fancyBtn {
+        width: 100%;
+        max-width: 300px;
+        height: 50px;
+        font-size: 1.2em;
+        margin-top: 20px;
+        border: 2px solid #FFB347;
+        background: #FFB347;
+        color: #000;
+        cursor: pointer;
+        touch-action: manipulation;
+        z-index: 10;
+        position: relative;
+    }
+}

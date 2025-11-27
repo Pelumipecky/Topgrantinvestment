@@ -169,7 +169,7 @@ export default function Signin() {
                         <label className='form-control2'>
                             <input type='checkbox' name='remember' /> Remember me
                         </label>
-                        <button type='submit' className='fancyBtn'>Sign In</button>
+                        <button type='submit' className='fancyBtn' onClick={() => console.log('Sign In button clicked')}>Sign In</button>
                     </div>
                     <p className='haveanaccount'>Are you an admin? <Link href='/signin_admin'>Sign In as admin</Link></p>
                     <p className='haveanaccount'>Don&apos;t have an account? <Link href='/signup'>Sign Up</Link></p>
