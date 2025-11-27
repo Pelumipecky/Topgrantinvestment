@@ -13,6 +13,7 @@ import '../styles/admin-dashboard.css';
 import ErrorBoundary from '../components/ErrorBoundary';
 import { config } from '../utils/config';
 import dynamic from 'next/dynamic';
+import attachInputVisibilityFix from '../utils/inputVisibilityFix';
 
 const TranslateWidget = dynamic(() => import('../components/TranslateWidget'), { ssr: false });
 
@@ -75,6 +76,12 @@ export default function App({ Component, pageProps }) {
 
   // Disable automatic route guard to prevent signin conflicts
   // Individual pages will handle their own auth checks if needed
+
+  // Attach runtime input visibility fix for browsers that ignore CSS overrides
+  useEffect(() => {
+    const cleanup = attachInputVisibilityFix();
+    return () => cleanup && cleanup();
+  }, []);
 
   return (
     <ThemeProvider>
