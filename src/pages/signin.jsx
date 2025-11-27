@@ -37,12 +37,15 @@ export default function Signin() {
 
     async function handleSignIn(e) {
         e.preventDefault();
+        console.log('handleSignIn invoked', { email, passwordLength: password?.length, verifyChecked: !!verifyRef.current?.checked });
         if (!verifyRef.current?.checked) {
+            console.warn('SignIn blocked: human verification not completed');
             setErrMsg('Please complete the human verification');
             clearErrorSoon();
             return;
         }
         if (!email.trim() || !password) {
+            console.warn('SignIn blocked: missing email or password', { email });
             setErrMsg('Please enter email and password');
             clearErrorSoon();
             return;
@@ -50,8 +53,11 @@ export default function Signin() {
         // Auth with Supabase
         let authResult;
         try {
+            console.log('Attempting supabaseAuth.signIn for', email.trim());
             authResult = await supabaseAuth.signIn(email.trim(), password);
-            if (authResult.error) {
+            console.log('supabaseAuth.signIn result:', authResult);
+            if (authResult?.error) {
+                console.error('supabaseAuth.signIn returned error', authResult.error);
                 throw authResult.error;
             }
         } catch (authErr) {
