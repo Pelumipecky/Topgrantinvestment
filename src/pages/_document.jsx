@@ -6,7 +6,8 @@ export default function Document() {
       <Head>
         <meta charSet="UTF-8"/>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
-          <meta name="theme-color" content='#003459'/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="theme-color" content='#003459'/>
         <meta name="title" content="Growing your wealth, one investment at a time"></meta>
         <meta name="description" content="Grant Union Investment is a trusted, regulation-forward binary and cryptocurrency trading company delivering dependable growth."/>
         <meta name="keywords" content="Grant Union Investment, grantunioninvestment.com, binary trading, Broker, forex trading, Investment, forex investment, Trusted investment platforms, Egypt investment platforms, US investment platforms, UK investment platforms, Paying websites, investment websites, trusted investment platform."/>
