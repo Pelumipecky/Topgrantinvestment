@@ -218,6 +218,35 @@ video {
   cursor: pointer;
 }
 
+/* Ensure form input text is visible across devices (mobile browsers, autofill, etc) */
+input, textarea, select, .form-control, .form-control2 {
+  color: var(--text-clr1) !important;
+  caret-color: var(--text-clr1) !important;
+  background-color: transparent !important;
+  -webkit-text-fill-color: var(--text-clr1) !important; /* for iOS/Chrome autofill */
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--grey-clr) !important;
+  opacity: 1;
+}
+
+/* Autofill fixes for WebKit browsers */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  -webkit-text-fill-color: var(--text-clr1) !important;
+}
+
+/* Ensure inputs stay readable when focused on small screens */
+@media screen and (max-width: 420px) {
+  input, textarea {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+}
+
 .sortOptions button {
   padding: 8px 12px;
   border-radius: 5px;
