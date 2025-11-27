@@ -92,8 +92,8 @@ export default function App({ Component, pageProps }) {
       <AnimatePresence mode='wait'>
           <div className="app-wrapper" key="app-content">
           {/* ChatBot is rendered inside the user profile page only */}
-          <Component {...pageProps} />
           <TranslateWidget />
+          <Component {...pageProps} />
         </div>
       </AnimatePresence>
     </ThemeProvider>
