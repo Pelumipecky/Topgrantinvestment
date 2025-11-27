@@ -475,7 +475,7 @@ select:-webkit-autofill {
 
 .translate-widget {
   position: fixed;
-  bottom: 20px;
+  top: 20px;
   right: 20px;
   background: rgba(12, 4, 24, 0.9);
   border: 1px solid rgba(255,255,255,0.08);
@@ -521,4 +521,11 @@ select:-webkit-autofill {
 .translate-widget .goog-te-gadget-simple {
   background-color: transparent;
   border: none !important;
+}
+
+/* Hide translate widget on very small screens to avoid covering inputs/buttons */
+@media screen and (max-width: 420px) {
+  .translate-widget {
+    display: none !important;
+  }
 }
