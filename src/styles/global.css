@@ -231,6 +231,23 @@ input::placeholder, textarea::placeholder {
   opacity: 1;
 }
 
+/* Hide placeholder while typing/focused so user sees their input on all devices */
+input:focus::placeholder,
+textarea:focus::placeholder {
+  opacity: 0 !important;
+  color: transparent !important;
+}
+
+/* Ensure input text remains visible when focused/active on mobile */
+input:focus,
+textarea:focus,
+input:active,
+textarea:active {
+  color: var(--text-clr1) !important;
+  -webkit-text-fill-color: var(--text-clr1) !important;
+  caret-color: var(--text-clr1) !important;
+}
+
 /* Autofill fixes for WebKit browsers */
 input:-webkit-autofill,
 textarea:-webkit-autofill,
