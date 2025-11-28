@@ -5,7 +5,7 @@ export const config = {
   sessionTimeout: 24 * 60 * 60 * 1000, // 24 hours in milliseconds
   errorMessages: {
     invalidEmail: 'Please enter a valid email address',
-    weakPassword: 'Password must be at least 8 characters and include numbers and letters',
+    weakPassword: 'Password must be at least 8 characters and include uppercase, lowercase, numbers, and special characters',
     emailInUse: 'An account already exists with this email. Try logging in.',
     loginFailed: 'Incorrect email or password',
     verificationNeeded: 'Please complete the human verification',
@@ -17,7 +17,34 @@ export const config = {
 export const validatePassword = (password) => {
   const hasNumber = /[0-9]/.test(password);
   const hasLetter = /[a-zA-Z]/.test(password);
-  return password.length >= config.minPasswordLength && hasNumber && hasLetter;
+  const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
+  const hasUpperCase = /[A-Z]/.test(password);
+  const hasLowerCase = /[a-z]/.test(password);
+
+  return {
+    isValid: password.length >= config.minPasswordLength && hasNumber && hasLetter && hasSpecialChar,
+    hasMinLength: password.length >= config.minPasswordLength,
+    hasNumber: hasNumber,
+    hasLetter: hasLetter,
+    hasSpecialChar: hasSpecialChar,
+    hasUpperCase: hasUpperCase,
+    hasLowerCase: hasLowerCase,
+    strength: calculatePasswordStrength(password)
+  };
+};
+
+export const calculatePasswordStrength = (password) => {
+  let score = 0;
+  if (password.length >= 8) score += 1;
+  if (password.length >= 12) score += 1;
+  if (/[a-z]/.test(password)) score += 1;
+  if (/[A-Z]/.test(password)) score += 1;
+  if (/[0-9]/.test(password)) score += 1;
+  if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) score += 1;
+
+  if (score <= 2) return 'weak';
+  if (score <= 4) return 'medium';
+  return 'strong';
 };
 
 export const formatCurrency = (amount) => {

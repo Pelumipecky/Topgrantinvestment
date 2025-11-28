@@ -164,6 +164,9 @@ export default function Signin() {
                         <label className='form-control2'>
                             <input type='checkbox' name='remember' /> Remember me
                         </label>
+                        <div className='forgot-password-link'>
+                            <Link href='/reset-password'>Forgot Password?</Link>
+                        </div>
                         <button type='submit' className='fancyBtn' onClick={() => console.log('Sign In button clicked on mobile')}>Sign In</button>
                     </div>
                     <p className='haveanaccount'>Are you an admin? <Link href='/signin_admin'>Sign In as admin</Link></p>

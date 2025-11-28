@@ -7,7 +7,7 @@ import { supabaseAuth, supabaseDb } from '../database/supabaseUtils';
 import { themeContext } from '../../providers/ThemeProvider';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { config, validatePassword } from '../utils/config';
+import { config, validatePassword, calculatePasswordStrength } from '../utils/config';
 
 const Signup = () => {
   const [passwordShow, setPasswordShow] = useState(false);
@@ -18,6 +18,7 @@ const Signup = () => {
   const [referralCodeInput, setReferralCodeInput] = useState('');
   const [signupSuccessInfo, setSignupSuccessInfo] = useState(null);
   const [copiedField, setCopiedField] = useState(null);
+  const [passwordStrength, setPasswordStrength] = useState(null);
   const inputRef = useRef(null);
 
   const router = useRouter();
@@ -137,7 +138,7 @@ const Signup = () => {
         throw new Error("Please enter your phone number");
       }
 
-      if (!validatePassword(toLocaleStorage.password)) {
+      if (!validatePassword(toLocaleStorage.password).isValid) {
         throw new Error(config.errorMessages.weakPassword);
       }
 
@@ -373,12 +374,35 @@ const Signup = () => {
             </div>
             <div className="passcntn">
               <input
-                onChange={(e) => setToLocalStorage({...toLocaleStorage, password: e.target.value})}
+                onChange={(e) => {
+                  setToLocalStorage({...toLocaleStorage, password: e.target.value});
+                  setPasswordStrength(validatePassword(e.target.value));
+                }}
                 type={passwordShow ? "text" : "password"} name='password' placeholder='Password' required/>
               <button type="button" onClick={() => setPasswordShow(prev => !prev)}>
                 <i className={`icofont-eye-${!passwordShow ? "alt" : "blocked"}`}></i>
               </button>
             </div>
+            {passwordStrength && toLocaleStorage.password && (
+              <div className="password-strength">
+                <div className="strength-bar">
+                  <div
+                    className={`strength-fill ${passwordStrength.strength}`}
+                    style={{ width: `${(passwordStrength.strength === 'weak' ? 33 : passwordStrength.strength === 'medium' ? 66 : 100)}%` }}
+                  ></div>
+                </div>
+                <span className={`strength-text ${passwordStrength.strength}`}>
+                  {passwordStrength.strength === 'weak' ? 'Weak' : passwordStrength.strength === 'medium' ? 'Medium' : 'Strong'}
+                </span>
+                <div className="strength-requirements">
+                  {!passwordStrength.hasMinLength && <span>8+ chars</span>}
+                  {!passwordStrength.hasUpperCase && <span>Uppercase</span>}
+                  {!passwordStrength.hasLowerCase && <span>Lowercase</span>}
+                  {!passwordStrength.hasNumber && <span>Number</span>}
+                  {!passwordStrength.hasSpecialChar && <span>Special char</span>}
+                </div>
+              </div>
+            )}
             <div className="passcntn">
               <input
                 onChange={(e) => setToLocalStorage({...toLocaleStorage, confirmPassword: e.target.value})}

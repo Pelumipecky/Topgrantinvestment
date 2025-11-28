@@ -377,14 +377,53 @@ export const referralService = {
   getReferralStats
 };
 
+// Progressive login delay system for account protection
+let loginAttempts = {};
+const MAX_ATTEMPTS = 5;
+const BASE_DELAY = 1000; // 1 second
+
+const getLoginDelay = (email) => {
+  const attempts = loginAttempts[email] || 0;
+  if (attempts < 3) return 0; // No delay for first 3 attempts
+  return BASE_DELAY * Math.pow(2, attempts - 3); // Exponential backoff
+};
+
+const recordFailedAttempt = (email) => {
+  loginAttempts[email] = (loginAttempts[email] || 0) + 1;
+
+  // Clear attempts after 30 minutes
+  setTimeout(() => {
+    if (loginAttempts[email]) {
+      delete loginAttempts[email];
+    }
+  }, 30 * 60 * 1000);
+};
+
+const resetLoginAttempts = (email) => {
+  delete loginAttempts[email];
+};
+
 // Authentication functions
 export const supabaseAuth = {
   signIn: async (email, password) => {
+    // Check for progressive delay
+    const delay = getLoginDelay(email);
+    if (delay > 0) {
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
-    return { data, error };
+
+    if (error) {
+      recordFailedAttempt(email);
+      return { data, error };
+    } else {
+      resetLoginAttempts(email);
+      return { data, error };
+    }
   },
 
   signUp: async (email, password, userData = {}) => {
@@ -403,9 +442,26 @@ export const supabaseAuth = {
     return { error };
   },
 
-  getCurrentUser: async () => {
-    const { data: { user }, error } = await supabase.auth.getUser();
-    return { user, error };
+  setSession: async (accessToken, refreshToken) => {
+    const { data, error } = await supabase.auth.setSession({
+      access_token: accessToken,
+      refresh_token: refreshToken
+    });
+    return { data, error };
+  },
+
+  resetPassword: async (email, redirectTo) => {
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: redirectTo || `${window.location.origin}/reset-password`
+    });
+    return { error };
+  },
+
+  updatePassword: async (newPassword) => {
+    const { data, error } = await supabase.auth.updateUser({
+      password: newPassword
+    });
+    return { data, error };
   },
 
   onAuthStateChange: (callback) => {
