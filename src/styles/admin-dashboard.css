@@ -294,16 +294,18 @@
   .usersTableContainer {
     border-radius: 8px;
     margin: 15px 0;
+    overflow-x: auto;
   }
   
   .usersTable {
     font-size: 11px;
-    min-width: 1000px;
+    min-width: 800px; /* Reduced from 1000px */
   }
   
   .usersTable th,
   .usersTable td {
     padding: 8px 6px;
+    white-space: nowrap;
   }
   
   .cryptic-id {
@@ -590,6 +592,30 @@
   .kycTableContainer {
     border-radius: 8px;
     margin: 15px 0;
+    overflow-x: auto;
+  }
+  
+  .kycTable {
+    font-size: 11px;
+    min-width: 800px; /* Reduced from 1000px */
+  }
+  
+  .kycTable th,
+  .kycTable td {
+    padding: 8px 6px;
+    white-space: nowrap;
+  }
+  
+  .kyc-status {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kycTableContainer {
+    border-radius: 8px;
+    margin: 15px 0;
   }
   
   .kycTable {
@@ -806,16 +832,18 @@
   .investmentsTableContainer {
     border-radius: 8px;
     margin: 15px 0;
+    overflow-x: auto;
   }
   
   .investmentsTable {
     font-size: 11px;
-    min-width: 1000px;
+    min-width: 900px; /* Reduced from 1000px */
   }
   
   .investmentsTable th,
   .investmentsTable td {
     padding: 8px 6px;
+    white-space: nowrap;
   }
   
   .investment-status {
