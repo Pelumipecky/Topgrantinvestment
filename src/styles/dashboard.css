@@ -1111,7 +1111,7 @@ button.logoutBtn i{
     transform: scale(1.05);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     #mobilepop{
         display: flex;
         z-index: 100;
