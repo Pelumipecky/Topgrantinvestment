@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "packages": "Our Packages",
+    "contact": "Contact",
+    "dashboard": "Dashboard",
+    "login": "Sign In",
+    "register": "Register",
+    "logout": "Log Out"
+  },
+  "hero": {
+    "title": "Growing your wealth, one investment at a time",
+    "subtitle": "Grant Union Investment is a trusted, regulation-forward binary and cryptocurrency trading company delivering dependable growth.",
+    "cta": "Get Started"
+  },
+  "about": {
+    "title": "About Grant Union Investment",
+    "description": "We are a trusted binary and cryptocurrency trading company delivering consistent, compliant returns."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message"
+  },
+  "auth": {
+    "signin": "Sign In",
+    "signup": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "createAccount": "Create Account",
+    "login": "Login"
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "balance": "Balance",
+    "investments": "Investments",
+    "withdrawals": "Withdrawals",
+    "profile": "Profile"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No",
+    "close": "Close",
+    "save": "Save",
+    "delete": "Delete"
+  }
+}

@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState, useContext, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { themeContext } from '../../../providers/ThemeProvider';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -11,6 +12,7 @@ const Navbar = ({ showsidecard, setShowsideCard, shownavOptions, showDisplayCard
     const [unreadChats, setUnreadChats] = useState(0);
     const ctx = useContext(themeContext);
     const { setregisterFromPath } = ctx;
+    const { t } = useTranslation('common');
 
     const handleLogOut = () => {
         localStorage.clear();
@@ -102,7 +104,7 @@ const Navbar = ({ showsidecard, setShowsideCard, shownavOptions, showDisplayCard
         {
             shownavOptions && (
                 <div id="mobilenone" className="centerBox">
-                    <a  href="#about">About Us</a>
+                    <a  href="#about">{t('nav.about')}</a>
                     <a onClick={() => {
                         const user = JSON.parse(sessionStorage.getItem("activeUser") || localStorage.getItem("activeUser") || "null");
                         if (user?.id) {
@@ -110,8 +112,8 @@ const Navbar = ({ showsidecard, setShowsideCard, shownavOptions, showDisplayCard
                         } else {
                             window.location.href = "/signin";
                         }
-                    }} style={{cursor: 'pointer'}}>Our Packages</a>
-                    <Link  href={"/contact"}>Contact</Link>
+                    }} style={{cursor: 'pointer'}}>{t('nav.packages')}</a>
+                    <Link  href={"/contact"}>{t('nav.contact')}</Link>
                 </div>
             )
         }
@@ -167,8 +169,8 @@ const Navbar = ({ showsidecard, setShowsideCard, shownavOptions, showDisplayCard
                                             <p>{currentUser?.idnum} | {currentUser?.accountStatus}</p>
                                         </div>
                                         <div className="bottomDisplay">
-                                            <Link href={currentUser?.admin ? "/dashboard_admin": "/profile" } title='profile'>Dashboard <i className="icofont-dashboard-web"></i></Link>
-                                            <button type="button" title='log Out' onClick={handleLogOut}>Log Out <i className="icofont-logout"></i></button>
+                                            <Link href={currentUser?.admin ? "/dashboard_admin": "/profile" } title='profile'>{t('nav.dashboard')} <i className="icofont-dashboard-web"></i></Link>
+                                            <button type="button" title='log Out' onClick={handleLogOut}>{t('nav.logout')} <i className="icofont-logout"></i></button>
                                         </div>
                                     </motion.div>
 
@@ -179,8 +181,8 @@ const Navbar = ({ showsidecard, setShowsideCard, shownavOptions, showDisplayCard
                     </div>
                 ) : (
                     <>
-                        <Link id="mobilenone" href={"/signup"} className="fancyBtn" onClick={() => {setregisterFromPath("/")}}>Register</Link>
-                        <Link id="mobilenone" href={"/signin"} className="borderBtn" onClick={() => {setregisterFromPath("/")}}>Sign In</Link>
+                        <Link id="mobilenone" href={"/signup"} className="fancyBtn" onClick={() => {setregisterFromPath("/")}}>{t('nav.register')}</Link>
+                        <Link id="mobilenone" href={"/signin"} className="borderBtn" onClick={() => {setregisterFromPath("/")}}>{t('nav.login')}</Link>
                     </>
                 )
             }

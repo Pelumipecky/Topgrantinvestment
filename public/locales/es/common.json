@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Nosotros",
+    "packages": "Nuestros Paquetes",
+    "contact": "Contacto",
+    "dashboard": "Panel de Control",
+    "login": "Iniciar Sesión",
+    "register": "Registrarse",
+    "logout": "Cerrar Sesión"
+  },
+  "hero": {
+    "title": "Creciendo tu riqueza, una inversión a la vez",
+    "subtitle": "Grant Union Investment es una empresa confiable de trading binario y criptomonedas que entrega crecimiento dependible.",
+    "cta": "Comenzar"
+  },
+  "about": {
+    "title": "Sobre Grant Union Investment",
+    "description": "Somos una empresa confiable de trading binario y criptomonedas que entrega retornos consistentes y cumplidores."
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "message": "Mensaje",
+    "send": "Enviar Mensaje"
+  },
+  "auth": {
+    "signin": "Iniciar Sesión",
+    "signup": "Registrarse",
+    "email": "Correo Electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar Contraseña",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "noAccount": "¿No tienes cuenta?",
+    "haveAccount": "¿Ya tienes cuenta?",
+    "createAccount": "Crear Cuenta",
+    "login": "Iniciar Sesión"
+  },
+  "dashboard": {
+    "welcome": "Bienvenido",
+    "balance": "Saldo",
+    "investments": "Inversiones",
+    "withdrawals": "Retiros",
+    "profile": "Perfil"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "yes": "Sí",
+    "no": "No",
+    "close": "Cerrar",
+    "save": "Guardar",
+    "delete": "Eliminar"
+  }
+}

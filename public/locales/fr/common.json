@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "packages": "Nos Forfaits",
+    "contact": "Contact",
+    "dashboard": "Tableau de Bord",
+    "login": "Se Connecter",
+    "register": "S'inscrire",
+    "logout": "Se Déconnecter"
+  },
+  "hero": {
+    "title": "Développer votre richesse, un investissement à la fois",
+    "subtitle": "Grant Union Investment est une entreprise de confiance spécialisée dans le trading binaire et crypto qui offre une croissance fiable.",
+    "cta": "Commencer"
+  },
+  "about": {
+    "title": "À Propos de Grant Union Investment",
+    "description": "Nous sommes une entreprise de confiance spécialisée dans le trading binaire et crypto offrant des retours cohérents et conformes."
+  },
+  "contact": {
+    "title": "Nous Contacter",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "send": "Envoyer le Message"
+  },
+  "auth": {
+    "signin": "Se Connecter",
+    "signup": "S'inscrire",
+    "email": "Email",
+    "password": "Mot de Passe",
+    "confirmPassword": "Confirmer le Mot de Passe",
+    "forgotPassword": "Mot de passe oublié ?",
+    "noAccount": "Pas de compte ?",
+    "haveAccount": "Déjà un compte ?",
+    "createAccount": "Créer un Compte",
+    "login": "Se Connecter"
+  },
+  "dashboard": {
+    "welcome": "Bienvenue",
+    "balance": "Solde",
+    "investments": "Investissements",
+    "withdrawals": "Retraits",
+    "profile": "Profil"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "yes": "Oui",
+    "no": "Non",
+    "close": "Fermer",
+    "save": "Sauvegarder",
+    "delete": "Supprimer"
+  }
+}

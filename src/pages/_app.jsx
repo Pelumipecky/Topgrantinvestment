@@ -8,6 +8,8 @@ import '../styles/dashboard.css';
 import '../styles/signup.css';
 import '../styles/home.css';
 import '../styles/global.css';
+import '../i18n';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 import '../styles/admin-components.css';
 import '../styles/admin-dashboard.css';
 import ErrorBoundary from '../components/ErrorBoundary';
@@ -91,6 +93,7 @@ export default function App({ Component, pageProps }) {
           <div className="app-wrapper" key="app-content">
           {/* ChatBot is rendered inside the user profile page only */}
           <Component {...pageProps} />
+          <LanguageSwitcher />
         </div>
       </AnimatePresence>
     </ThemeProvider>
