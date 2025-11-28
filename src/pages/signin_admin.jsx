@@ -220,6 +220,12 @@ const Signin = () => {
                                 'Sign In'
                             )}
                         </button>
+
+                        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                            <Link href="/signin" className="borderBtn" style={{ display: 'inline-block', textDecoration: 'none' }}>
+                                <i className="icofont-arrow-left"></i> Back to User Sign In
+                            </Link>
+                        </div>
                     </div>
                 </form>
             </div>
