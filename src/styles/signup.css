@@ -63,6 +63,21 @@
     left: 0;
     z-index: -1;
     pointer-events: none;
+    display: block;
+}
+
+/* Show video only on desktop, hide on mobile to save bandwidth */
+@media screen and (max-width: 700px) {
+    .leftSide video {
+        display: none !important;
+    }
+}
+
+/* Desktop video display */
+@media screen and (min-width: 701px) {
+    .leftSide video {
+        display: block !important;
+    }
 }
 
 .leftSide .overlay {
@@ -141,6 +156,11 @@
         display: none !important;
         opacity: 0 !important;
         visibility: hidden !important;
+    }
+
+    /* Prevent video loading on mobile devices */
+    .leftSide video {
+        pointer-events: none;
     } 
 
     .rightSide{

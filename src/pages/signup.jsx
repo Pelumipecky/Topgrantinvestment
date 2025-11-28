@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useContext } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import { motion } from "framer-motion";
 import Link from 'next/link';
 import Image from 'next/image';
@@ -64,7 +64,32 @@ const Signup = () => {
     dateUpdated: new Date().toISOString()
   };
 
-  const [toLocaleStorage, setToLocalStorage] = useState(emptyUser);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const videoRef = useRef(null);
+
+  // Check if device is desktop and conditionally load video
+  useEffect(() => {
+    const checkIfDesktop = () => {
+      setIsDesktop(window.innerWidth > 700);
+    };
+
+    checkIfDesktop();
+    window.addEventListener('resize', checkIfDesktop);
+
+    return () => window.removeEventListener('resize', checkIfDesktop);
+  }, []);
+
+  // Load video only on desktop
+  useEffect(() => {
+    if (videoRef.current) {
+      if (isDesktop) {
+        videoRef.current.src = 'signup_vid2.mp4';
+        videoRef.current.load();
+      } else {
+        videoRef.current.src = '';
+      }
+    }
+  }, [isDesktop]);
 
   // Generate random numeric id safely in browser
   const generatePassword = () => {
@@ -297,7 +322,13 @@ const Signup = () => {
       </Head>
 
       <div className="leftSide">
-        <video src="signup_vid2.mp4" autoPlay loop muted></video>
+        <video 
+          ref={videoRef}
+          autoPlay 
+          loop 
+          muted 
+          className="desktop-video"
+        ></video>
         <div className="overlay">
           <h2>&quot;When it rains gold, <br /> put out the bucket, <br /> not the thimble.&quot;</h2>
           <p><span>--</span>  Warren Buffett  <span>--</span></p>

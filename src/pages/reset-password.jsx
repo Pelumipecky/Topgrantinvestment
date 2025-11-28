@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -13,6 +13,32 @@ export default function ResetPassword() {
   const [error, setError] = useState('');
   const [isResetMode, setIsResetMode] = useState(false);
   const router = useRouter();
+  const videoRef = useRef(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  // Check if device is desktop and conditionally load video
+  useEffect(() => {
+    const checkIfDesktop = () => {
+      setIsDesktop(window.innerWidth > 700);
+    };
+
+    checkIfDesktop();
+    window.addEventListener('resize', checkIfDesktop);
+
+    return () => window.removeEventListener('resize', checkIfDesktop);
+  }, []);
+
+  // Load video only on desktop
+  useEffect(() => {
+    if (videoRef.current) {
+      if (isDesktop) {
+        videoRef.current.src = 'signup_vid2.mp4';
+        videoRef.current.load();
+      } else {
+        videoRef.current.src = '';
+      }
+    }
+  }, [isDesktop]);
 
   useEffect(() => {
     // Check if we're in password reset mode (user clicked email link)
@@ -81,7 +107,13 @@ export default function ResetPassword() {
   return (
     <div className='signupCntn'>
       <div className='leftSide'>
-        <video src='signup_vid2.mp4' autoPlay loop muted />
+        <video 
+          ref={videoRef}
+          autoPlay 
+          loop 
+          muted 
+          className="desktop-video"
+        />
         <div className='overlay'>
           <h2>&quot;Security is not a product, <br /> but a process.&quot;</h2>
           <p><span>--</span> Bruce Schneier <span>--</span></p>

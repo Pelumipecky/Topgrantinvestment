@@ -1,4 +1,4 @@
-import { useState, useRef, useContext } from 'react';
+import { useState, useRef, useContext, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
@@ -13,6 +13,32 @@ export default function Signin() {
     const [verifyState, setVerifyState] = useState('Default'); // Default | verifying | verified
     const [errMsg, setErrMsg] = useState('');
     const verifyRef = useRef(null);
+    const videoRef = useRef(null);
+    const [isDesktop, setIsDesktop] = useState(false);
+
+    // Check if device is desktop and conditionally load video
+    useEffect(() => {
+        const checkIfDesktop = () => {
+            setIsDesktop(window.innerWidth > 700);
+        };
+
+        checkIfDesktop();
+        window.addEventListener('resize', checkIfDesktop);
+
+        return () => window.removeEventListener('resize', checkIfDesktop);
+    }, []);
+
+    // Load video only on desktop
+    useEffect(() => {
+        if (videoRef.current) {
+            if (isDesktop) {
+                videoRef.current.src = 'signup_vid2.mp4';
+                videoRef.current.load();
+            } else {
+                videoRef.current.src = '';
+            }
+        }
+    }, [isDesktop]);
     const ctx = useContext(themeContext);
     const { registerFromPath } = ctx || {};
 
@@ -105,7 +131,13 @@ export default function Signin() {
                 <meta property='og:title' content='Sign In' />
             </Head>
             <div className='leftSide'>
-                <video src='signup_vid2.mp4' autoPlay loop muted />
+                <video 
+                  ref={videoRef}
+                  autoPlay 
+                  loop 
+                  muted 
+                  className="desktop-video"
+                />
                 <div className='overlay'>
                     <h2>&quot;Look First -<br /> Then Leap.&quot;</h2>
                     <p><span>--</span> Alex Hennold <span>--</span></p>
