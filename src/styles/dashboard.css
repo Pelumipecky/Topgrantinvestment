@@ -1041,17 +1041,41 @@ button.logoutBtn i{
 }
 
 .menuBtn#floatingButton{
-    border-radius: 7px;
+    border-radius: 50%;
     position: fixed;
-    top: 3%;
-    left: 3%;
-    background-color: var(--opac-clr3);
+    top: 20px;
+    left: 20px;
+    background-color: var(--primary-clr);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    padding-inline: 6px;
-    height: 35px;
-    width: 45px;
+    padding: 12px;
+    height: 56px;
+    width: 56px;
     display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.menuBtn#floatingButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.menuBtn#floatingButton:active {
+    transform: scale(0.95);
+}
+
+.mobile-nav-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    backdrop-filter: blur(2px);
 }
 
 #mobilepop{
@@ -1064,27 +1088,42 @@ button.logoutBtn i{
 }
 
 #mobilepop .panelCloseBtn{
-    width: 40px;
-    aspect-ratio: 1;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 20px;
-    right: 10px;
-
-    border-radius: 5px;
-    background-color: transparent;
-    font-size: 2em;
+    top: 16px;
+    right: 16px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-deco);
+    font-size: 1.2em;
     border: none;
     outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#mobilepop .panelCloseBtn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
 }
 
 @media screen and (max-width: 600px) {
     #mobilepop{
         display: flex;
         z-index: 100;
-        width: calc(100vw - 20px);
+        width: 280px;
+        max-width: 80vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: var(--dark-clr2);
+        box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+        border-radius: 0 12px 12px 0;
     }
 
     .menuBtn#floatingButton{

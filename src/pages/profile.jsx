@@ -771,14 +771,22 @@ const Profile = () => {
 
       <AnimatePresence>
         {showsidePanel && (
-          <motion.div 
-            id="mobilepop" 
-            className="leftProfile"
-            initial="init"
-            animate="finale"
-            exit="exit"
-            variants={swipeParent}
-          >
+          <>
+            <motion.div
+              className="mobile-nav-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowSidePanel(false)}
+            />
+            <motion.div 
+              id="mobilepop" 
+              className="leftProfile"
+              initial="init"
+              animate="finale"
+              exit="exit"
+              variants={swipeParent}
+            >
             <div className="topmostRightPrile">
               <Link href={"/"}>
                 <Image src="/grantunionLogo.png" className="theLogo" alt="Grant Union Investment logo" width={160} height={40} style={{ height: 'auto', width: '160px' }} />
@@ -871,6 +879,7 @@ const Profile = () => {
 
             <button type="button" className="panelCloseBtn" onClick={() => {setShowSidePanel(false)}}><i className="icofont-close-line"></i></button>
           </motion.div>
+          </>
         )}
       </AnimatePresence>
 
