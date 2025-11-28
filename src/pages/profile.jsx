@@ -872,7 +872,7 @@ const Profile = () => {
               </ul>
             </div>
             <div className={profileStyles.rightLeftProfile}>
-              <button onClick={handleLogOut}>
+              <button onClick={handleLogOut} className="logoutBtn">
                 Log Out <i className="icofont-logout"></i>
               </button>
             </div>

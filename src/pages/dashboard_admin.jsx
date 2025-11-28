@@ -713,7 +713,7 @@ export default function DashboardAdmin() {
               </ul>
             </div>
             <div className="rightLeftProfile">
-              <button className="borderBtn" onClick={logout}>
+              <button className="logoutBtn" onClick={logout}>
                 Log Out <i className="icofont-logout"></i>{" "}
               </button>
             </div>
