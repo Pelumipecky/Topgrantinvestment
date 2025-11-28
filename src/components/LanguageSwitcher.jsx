@@ -5,6 +5,7 @@ import styles from './LanguageSwitcher.module.css';
 const LanguageSwitcher = () => {
   const { i18n, t } = useTranslation('common');
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const languages = [
     { code: 'en', name: 'English', flag: '🇺🇸' },
@@ -19,11 +20,35 @@ const LanguageSwitcher = () => {
     setIsOpen(false);
   };
 
+  // Show language switcher on page load and hide after 5 seconds
+  useEffect(() => {
+    setIsVisible(true);
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+    }, 5000); // 5 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // If user interacts with it, keep it visible
+  const handleInteraction = () => {
+    setIsVisible(true);
+    // Reset the timer
+    setTimeout(() => {
+      setIsVisible(false);
+    }, 5000);
+  };
+
+  if (!isVisible) return null;
+
   return (
     <div className={styles.languageSwitcher}>
       <button
         className={styles.languageButton}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          handleInteraction();
+          setIsOpen(!isOpen);
+        }}
         aria-label="Change language"
       >
         <span className={styles.flag}>{currentLanguage.flag}</span>
@@ -37,7 +62,10 @@ const LanguageSwitcher = () => {
             <button
               key={lang.code}
               className={`${styles.dropdownItem} ${i18n.language === lang.code ? styles.active : ''}`}
-              onClick={() => changeLanguage(lang.code)}
+              onClick={() => {
+                changeLanguage(lang.code);
+                handleInteraction();
+              }}
             >
               <span className={styles.flag}>{lang.flag}</span>
               <span>{lang.name}</span>
