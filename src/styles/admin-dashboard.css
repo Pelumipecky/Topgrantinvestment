@@ -497,9 +497,9 @@
   }
   
   .action-btn {
-    padding: 3px 6px;
-    font-size: 9px;
-    min-width: 50px;
+    padding: 6px 8px;
+    font-size: 10px;
+    min-width: 60px;
     border-radius: 3px;
   }
   
