@@ -1130,6 +1130,14 @@ button.logoutBtn i{
         display: flex;
     }
 
+    .mainprofileSect .leftProfile {
+        display: none;
+    }
+
+    .mainprofileSect {
+        padding: 0;
+    }
+
     .panelPrfileDisp .right h3{
         font-size: 1.01em;
     }
