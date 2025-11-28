@@ -277,6 +277,58 @@
     }
 }
 
+@media screen and (max-width: 480px) {
+    .rightSide{
+        padding: 4% 3%;
+    }
+
+    .rightSide form{
+        gap: 18px;
+    }
+
+    .rightSide form h1{
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+
+    .inputCntn input,
+    .passcntn input{
+        font-size: 16px;
+        padding: 14px 12px;
+    }
+
+    .inputCntn, .passcntn{
+        height: 52px;
+    }
+
+    .fancyBtn{
+        padding: 12px 18px;
+        font-size: 15px;
+        min-height: 44px;
+    }
+
+    ._cloudflr_verifcation_widget{
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .verification_Box{
+        gap: 10px;
+    }
+
+    .verification_status p{
+        font-size: 0.7em;
+    }
+
+    .service_provider p{
+        font-size: 0.6em;
+    }
+
+    .service_provider p img{
+        width: 50px;
+    }
+}
+
 @media screen and (max-width: 360px) {
     .rightSide{
         padding-inline: 3%;
