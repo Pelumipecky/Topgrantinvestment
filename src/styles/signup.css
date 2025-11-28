@@ -252,8 +252,61 @@
 
     .inputCntn input,
     .passcntn input{
-        font-size: 0.95rem;
+        font-size: 16px;
         padding: 12px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .rightSide{
+        padding-inline: 3%;
+    }
+
+    .rightSide form{
+        gap: 15px;
+    }
+
+    .rightSide form h1{
+        font-size: 1.3em;
+        margin-top: 8px;
+    }
+
+    .inputCntn input,
+    .passcntn input{
+        font-size: 16px;
+        padding: 14px 12px;
+    }
+
+    .inputCntn, .passcntn{
+        height: 56px;
+    }
+
+    .fancyBtn{
+        padding: 14px 20px;
+        font-size: 16px;
+        min-height: 48px;
+    }
+
+    ._cloudflr_verifcation_widget{
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .verification_Box{
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .verification_status p{
+        font-size: 0.7em;
+    }
+
+    .service_provider p{
+        font-size: 0.6em;
+    }
+
+    .service_provider p img{
+        width: 50px;
     }
 }
 
@@ -388,7 +441,7 @@ form .inputcontainer{
 
 .inputCntn input{
     background-color: transparent;
-    font-size: 1.1em;
+    font-size: 16px;
     color: var(--text-clr1);
     padding-left: 40px;
     width: 100%;
@@ -399,7 +452,7 @@ form .inputcontainer{
 
 .passcntn input{
     background-color: transparent;
-    font-size: 1.1em;
+    font-size: 16px;
     color: var(--text-clr1);
     padding-right: 40px;
     width: 100%;
