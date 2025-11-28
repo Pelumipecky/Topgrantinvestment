@@ -327,6 +327,14 @@
     .service_provider p img{
         width: 50px;
     }
+
+    .inputCntn:focus-within,
+    .passcntn:focus-within {
+        transform: translateZ(0);
+        position: relative;
+        z-index: 10;
+        margin-bottom: 10px;
+    }
 }
 
 @media screen and (max-width: 360px) {
@@ -347,6 +355,14 @@
     .passcntn input{
         font-size: 16px;
         padding: 14px 12px;
+    }
+
+    .inputCntn:focus-within,
+    .passcntn:focus-within {
+        transform: translateZ(0);
+        position: relative;
+        z-index: 10;
+        margin-bottom: 10px;
     }
 
     .inputCntn, .passcntn{

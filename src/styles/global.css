@@ -510,3 +510,26 @@ video {
   background-color: transparent;
   border: none !important;
 }
+
+/* Mobile Input Handling */
+@media (max-width: 768px) {
+  input, textarea, select {
+    -webkit-appearance: none;
+    -webkit-user-select: text;
+    user-select: text;
+    -webkit-touch-callout: default;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    outline: 2px solid var(--primary-clr);
+    outline-offset: 2px;
+    transform: translateZ(0);
+  }
+
+  /* Ensure inputs are visible when keyboard opens */
+  input:focus, textarea:focus {
+    position: relative;
+    z-index: 1000;
+    background-color: var(--dark-clr2) !important;
+  }
+}
