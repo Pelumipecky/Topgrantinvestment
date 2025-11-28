@@ -310,6 +310,50 @@
     }
 }
 
+/* Medium mobile devices (iPhone 7, etc.) */
+@media screen and (max-width: 600px) {
+    .rightSide{
+        padding-inline: 4%;
+    }
+
+    .rightSide form{
+        gap: 20px;
+    }
+
+    .rightSide form h1{
+        font-size: 1.5em;
+        margin-top: 15px;
+    }
+
+    .inputCntn input,
+    .passcntn input{
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .fancyBtn{
+        padding: 16px 24px;
+        font-size: 16px;
+        min-height: 52px;
+        width: 100%;
+    }
+
+    ._cloudflr_verifcation_widget{
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .verification_Box{
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .checkbox_cntn{
+        width: 48px;
+        height: 48px;
+    }
+}
+
 .rightSide form .topsignuplink{
     width: 100%;
     background-color: var(--dark-clr1);
@@ -574,8 +618,8 @@ form .inputcontainer{
 
 .checkbox_cntn{
     position: relative;
-    width: 30px;
-    aspect-ratio: 1;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
