@@ -283,6 +283,14 @@ video {
     right: auto;
     left: 20px;
     transform: translateY(-50%);
+    min-width: 120px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    font-size: 0.75em;
+  }
+
+  .translate-widget span {
+    font-size: 0.7em;
   }
 }
 
