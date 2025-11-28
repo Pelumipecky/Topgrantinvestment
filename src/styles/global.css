@@ -276,22 +276,6 @@ video {
   .statCard h2 {
     font-size: 20px;
   }
-
-  .translate-widget {
-    bottom: auto;
-    top: 50%;
-    right: auto;
-    left: 20px;
-    transform: translateY(-50%);
-    min-width: 120px;
-    padding: 6px 8px;
-    border-radius: 8px;
-    font-size: 0.75em;
-  }
-
-  .translate-widget span {
-    font-size: 0.7em;
-  }
 }
 
 @media (max-width: 480px) {
@@ -459,56 +443,6 @@ video {
 
 .fadeIn {
   animation: fadeIn 0.5s ease-out;
-}
-
-.translate-widget {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(12, 4, 24, 0.9);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 10px 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-  z-index: 3000;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  min-width: 180px;
-}
-
-.translate-widget span {
-  font-size: 0.85em;
-  color: var(--text-clr1);
-  opacity: 0.9;
-}
-
-.translate-widget select,
-.translate-widget .goog-te-gadget .goog-te-combo {
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.3);
-  border-radius: 10px;
-  padding: 6px 10px;
-  color: var(--text-clr1) !important;
-  width: 100%;
-}
-
-.translate-widget option {
-  color: #0d0d17;
-}
-
-.translate-widget .goog-te-gadget {
-  font-family: inherit !important;
-  color: var(--text-clr1) !important;
-}
-
-.translate-widget .goog-te-gadget img {
-  display: none;
-}
-
-.translate-widget .goog-te-gadget-simple {
-  background-color: transparent;
-  border: none !important;
 }
 
 /* Mobile Input Handling */

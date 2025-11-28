@@ -14,8 +14,6 @@ import ErrorBoundary from '../components/ErrorBoundary';
 import { config } from '../utils/config';
 import dynamic from 'next/dynamic';
 
-const TranslateWidget = dynamic(() => import('../components/TranslateWidget'), { ssr: false });
-
 // ChatBot is rendered only on the user dashboard (profile page).
 // Moved rendering into the profile page so admin pages don't load the widget.
 
@@ -93,7 +91,6 @@ export default function App({ Component, pageProps }) {
           <div className="app-wrapper" key="app-content">
           {/* ChatBot is rendered inside the user profile page only */}
           <Component {...pageProps} />
-          <TranslateWidget />
         </div>
       </AnimatePresence>
     </ThemeProvider>
