@@ -276,6 +276,14 @@ video {
   .statCard h2 {
     font-size: 20px;
   }
+
+  .translate-widget {
+    bottom: auto;
+    top: 50%;
+    right: auto;
+    left: 20px;
+    transform: translateY(-50%);
+  }
 }
 
 @media (max-width: 480px) {
