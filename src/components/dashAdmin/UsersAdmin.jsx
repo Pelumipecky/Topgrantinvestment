@@ -195,7 +195,7 @@ const UsersAdmin = ({ activeUsers = [], investments = [], withdrawals = [], setP
                                               {elem?.name || elem?.userName || 'N/A'}
                                           </span>
                                       </td>
-                                      <td>{elem?.email || 'N/A'}</td>
+                                      <td className="email-cell">{elem?.email || 'N/A'}</td>
                                       <td className="cryptic-id">{elem?.id?.substring(0, 8)}...</td>
                                       <td className="balance">${parseFloat(elem?.balance || 0).toLocaleString()}</td>
                                       <td className="bonus">${parseFloat(elem?.bonus || 0).toLocaleString()}</td>

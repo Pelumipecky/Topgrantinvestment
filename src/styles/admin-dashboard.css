@@ -392,6 +392,155 @@
   }
 }
 
+/* Phone responsive styles for very small screens */
+@media (max-width: 480px) {
+  /* Table container improvements */
+  .usersTableContainer,
+  .investmentsTableContainer,
+  .kycTableContainer {
+    border-radius: 6px;
+    margin: 10px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--sec-clr) var(--dark-clr3);
+  }
+  
+  /* Custom scrollbar for webkit browsers */
+  .usersTableContainer::-webkit-scrollbar,
+  .investmentsTableContainer::-webkit-scrollbar,
+  .kycTableContainer::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  .usersTableContainer::-webkit-scrollbar-track,
+  .investmentsTableContainer::-webkit-scrollbar-track,
+  .kycTableContainer::-webkit-scrollbar-track {
+    background: var(--dark-clr3);
+    border-radius: 3px;
+  }
+  
+  .usersTableContainer::-webkit-scrollbar-thumb,
+  .investmentsTableContainer::-webkit-scrollbar-thumb,
+  .kycTableContainer::-webkit-scrollbar-thumb {
+    background: var(--sec-clr);
+    border-radius: 3px;
+  }
+  
+  /* Table font and spacing adjustments */
+  .usersTable,
+  .investmentsTable,
+  .kycTable {
+    font-size: 10px;
+    min-width: 600px; /* Reduced for better mobile scrolling */
+  }
+  
+  /* Header adjustments */
+  .usersTable th,
+  .investmentsTable th,
+  .kycTable th,
+  .usersTable td,
+  .investmentsTable td,
+  .kycTable td {
+    padding: 6px 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: none;
+  }
+  
+  /* Specific column width controls */
+  .usersTable th:first-child,
+  .usersTable td:first-child {
+    width: 40px;
+    min-width: 40px;
+  }
+  
+  .usersTable th:last-child,
+  .usersTable td:last-child {
+    width: 120px;
+    min-width: 120px;
+  }
+  
+  /* Text truncation for long content */
+  .clickable-name {
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  
+  .cryptic-id {
+    font-size: 9px;
+    padding: 2px 4px;
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Status badges */
+  .account-status,
+  .kyc-status {
+    font-size: 8px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  
+  /* Action buttons */
+  .action-buttons {
+    flex-direction: column;
+    gap: 2px;
+    align-items: stretch;
+  }
+  
+  .action-btn {
+    padding: 3px 6px;
+    font-size: 9px;
+    min-width: 50px;
+    border-radius: 3px;
+  }
+  
+  /* Balance and bonus columns */
+  .balance,
+  .bonus {
+    font-size: 10px;
+    font-weight: 600;
+    text-align: right;
+  }
+  
+  /* Email cell truncation */
+  .email-cell {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Filter section for phones */
+  .filterSection {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .searchBox input {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  
+  .sortOptions {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .sortOptions select {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+}
+
 /* KYC Table Styles */
 .kycTableContainer {
   width: 100%;
