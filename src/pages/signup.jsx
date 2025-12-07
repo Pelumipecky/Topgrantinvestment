@@ -25,23 +25,6 @@ const Signup = () => {
   const ctx = useContext(themeContext);
   const { registerFromPath } = ctx;
 
-  // Human verification handler (simulated)
-  const handleVerify = () => {
-    if (verify === "Default") {
-      setVerify("verifying");
-      setTimeout(() => {
-        setVerify("verified");
-        if (inputRef.current) inputRef.current.checked = true;
-      }, 3000);
-    } else {
-      if (inputRef.current) inputRef.current.checked = true;
-    }
-  };
-
-  const removeErr = () => {
-    setTimeout(() => setErrMsg(""), 3500);
-  };
-
   const dateString = new Date().toISOString().split("T")[0];
 
   const emptyUser = {
@@ -62,6 +45,25 @@ const Signup = () => {
     bonus: 50,
     authStatus: "unseen",
     dateUpdated: new Date().toISOString()
+  };
+
+  const [toLocaleStorage, setToLocalStorage] = useState(emptyUser);
+
+  // Human verification handler (simulated)
+  const handleVerify = () => {
+    if (verify === "Default") {
+      setVerify("verifying");
+      setTimeout(() => {
+        setVerify("verified");
+        if (inputRef.current) inputRef.current.checked = true;
+      }, 3000);
+    } else {
+      if (inputRef.current) inputRef.current.checked = true;
+    }
+  };
+
+  const removeErr = () => {
+    setTimeout(() => setErrMsg(""), 3500);
   };
 
   const [isDesktop, setIsDesktop] = useState(false);
