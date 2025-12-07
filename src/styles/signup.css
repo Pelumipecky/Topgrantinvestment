@@ -544,8 +544,20 @@
 .fancyBtn.secondary{
     width: 100%;
     margin-top: 0.5em;
-    background: transparent;
-    border: 1px solid rgba(0, 168, 232, 0.4);
+    background: linear-gradient(135deg, var(--primary-clr), var(--sec-clr));
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 14px 24px;
+    border-radius: 40px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fancyBtn.secondary:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 168, 232, 0.35);
 }
 
 form .inputcontainer{
