@@ -808,6 +808,7 @@ const Profile = () => {
                   className={profilestate === "Dashboard" ? "active" : ""}
                   onClick={() => {
                     setProfileState("Dashboard");
+                    setShowSidePanel(false);
                   }}
                 >
                   <i className="icofont-dashboard-web"></i> Dashboard
@@ -816,6 +817,7 @@ const Profile = () => {
                   className={profilestate === "Profile" ? "active" : ""}
                   onClick={() => {
                     setProfileState("Profile");
+                    setShowSidePanel(false);
                   }}
                 >
                   <i className="icofont-ui-user"></i> Profile
@@ -824,6 +826,7 @@ const Profile = () => {
                   className={profilestate === "Investments" ? "active" : ""}
                   onClick={() => {
                     setProfileState("Investments");
+                    setShowSidePanel(false);
                   }}
                 >
                   <i className="icofont-money-bag"></i> Investments
@@ -832,6 +835,7 @@ const Profile = () => {
                   className={profilestate === "Withdrawals" ? "active" : ""}
                   onClick={() => {
                     setProfileState("Withdrawals");
+                    setShowSidePanel(false);
                   }}
                 >
                   <i className="icofont-pay"></i> Withdrawals
@@ -840,6 +844,7 @@ const Profile = () => {
                   className={profilestate === "Notifications" ? "active" : ""}
                   onClick={() => {
                     setProfileState("Notifications");
+                    setShowSidePanel(false);
                   }}
                 >
                   <i className="icofont-alarm"></i> Notifications{" "}
@@ -854,6 +859,7 @@ const Profile = () => {
                   className={profilestate === "Loans" ? "active" : ""}
                   onClick={() => {
                     setProfileState("Loans");
+                    setShowSidePanel(false);
                   }}
                 >
                   <i className="icofont-wallet"></i> Loans
@@ -862,11 +868,12 @@ const Profile = () => {
                   className={profilestate === "KYC" ? "active" : ""}
                   onClick={() => {
                     setProfileState("KYC");
+                    setShowSidePanel(false);
                   }}
                 >
                   <i className="icofont-id-card"></i> Verification
                 </li>
-                <Link href={"/contact"}>
+                <Link href={"/contact"} onClick={() => setShowSidePanel(false)}>
                   <i className="icofont-ui-text-loading"></i> Feedback
                 </Link>
               </ul>
