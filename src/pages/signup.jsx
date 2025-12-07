@@ -264,7 +264,7 @@ const Signup = () => {
       setSignupSuccessInfo({
         referralCode,
         referralLink,
-        destination: registerFromPath || "/"
+        destination: "/profile" // Always go to user dashboard after signup
       });
 
       // Reset form state (except referral so they can share)
